@@ -1,0 +1,106 @@
+<% layout("/layouts/boilerplate.ejs")%>
+
+<body>
+    <div class="row">
+
+        <div class="col-8 offset-2"><br>
+            <div style="display: flex; align-items: center;">
+                <a href="/listings" style="color: rgba(0, 0, 0, 0.475);"><i class="fa-solid fa-arrow-left" style="font-size: 1.4rem; color: rgba(0, 0, 0, 0.475);"></i></a> &nbsp;&nbsp;&nbsp;
+                <h2>Create New Listing</h2>
+            </div>    
+            <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="listing[title]" placeholder="Title" class="form-control" required> 
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Field empty.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" name="listing[description]" placeholder="Description" class="form-control" required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Field empty.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image </label>
+                    <input type="file" name="listing[image]"  class="form-control" required  >
+                    <div class="valid-feedback">
+                        Default Image Setted!
+                    </div>
+                    <div class="invalid-feedback">
+                        No Image Selected!
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" name="listing[price]" placeholder="Price" class="form-control"  min="1" required > 
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Field empty.
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" name="listing[country]" placeholder="Country" class="form-control" required>
+                        <div class="invalid-feedback">
+                            Field empty.
+                        </div>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mb-3"> 
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="listing[location]" placeholder="Location" class="form-control" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                    <div class="invalid-feedback">
+                        Field empty.
+                    </div>
+                </div>
+
+                
+
+            
+                <button class="btn btn-primary mb-3" style="background-color: #fe424d; border: none;">Add Listing</button>
+            </form>
+        </div>
+
+        
+    </div>
+    
+
+
+
+    <!-- <form action="/listings" method="post">
+        <input type="text" name="title" placeholder="Title"> <br><br>
+        <textarea type="text" name="description" placeholder="Description"></textarea> <br><br>
+        <input type="text" name="image" placeholder="Image URL"><br><br>
+        <input type="number" name="price" placeholder="Price"> <br><br>
+        <input type="text" name="location" placeholder="Location"><br><br>
+        <input type="text" name="country" placeholder="Country"><br><br>
+        <button>Add</button>
+    </form> -->
+</body>

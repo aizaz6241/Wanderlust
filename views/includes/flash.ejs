@@ -1,0 +1,18 @@
+
+
+
+<% if (success && success.length > 0){%>
+    <div class="alert alert-success alert-dismissible fade show mt-3 col-8 offset-2" role="alert">
+        <i class="fa-solid fa-circle-check"></i>  &nbsp;&nbsp;
+        <%= success%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+
+<% if (error && error.length > 0){%>
+    <div class="alert alert-danger alert-dismissible fade show mt-3  col-8 offset-2" role="alert">
+        <i class="fa-solid fa-triangle-exclamation"></i>&nbsp;&nbsp;
+        <%= error%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
