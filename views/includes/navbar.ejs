@@ -1,53 +1,92 @@
-
-
 <style>
-  .search-btn{
+  .search-btn {
     border-color: #fe424d !important;
     color: black !important;
   }
-  .search-btn:hover{
+
+  .search-btn:hover {
     background-color: #fe424d;
     color: white !important;
   }
+
+  .search-input {
+    border-radius: 25px;
+    padding: 0.6rem 3rem;
+    width: 100%;
+  }
+
+  .auth-buttons .btn {
+    border-radius: 5px;
+  }
+
+  .navbar-collapse {
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .search-input {
+      padding: 0.6rem 1.5rem;
+    }
+
+    .auth-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .auth-buttons .btn {
+      width: 100%;
+    }
+
+    .navbar .form-control {
+      margin-right: 0 !important;
+    }
+
+    .navbar .navbar-collapse,
+    .navbar .container-fluid {
+      overflow-x: hidden;
+    }
+
+    .navbar form {
+      width: 100%;
+    }
+  }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top" >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" >
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid" style="background-color: white;">
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+
+    <!-- Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="display: flex; justify-content: space-between;">
 
+    <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarNavAltMarkup">
+      <!-- Left: Explore -->
       <div class="navbar-nav">
         <a class="nav-link" href="/listings">Explore</a>
-        
       </div>
 
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search destinations" style="border-radius: 25px; min-width: 100%; padding: 0.6rem 3rem 0.6rem 3rem;" />
-          <button class="btn btn-outline-success d-flex search-btn" type="submit" style="align-items: center; gap: 5px; border-radius: 25px;" ><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form>
-      </div>
+      <!-- Center: Search -->
+      <form class="d-flex my-2 my-md-0 mx-md-auto" role="search" style="max-width: 400px; width: 100%;">
+        <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" />
+        <button class="btn btn-outline-success search-btn" type="submit" style="border-radius: 20px;">Search</button>
+      </form>
 
-      <div class="navbar-nav ms-auto">
+      <!-- Right: Add Listing + Auth -->
+      <div class="navbar-nav d-flex align-items-center">
         <a class="nav-link" href="/listings/new">Add New Listing</a>
-        <%if(currentUser === undefined){%>
-          <div class=" gap-2 d-flex">
-            <a class="nav-link btn btn-primary "   style="background-color: transparent; color: black; border: 1px solid #fe424d;" href="/signup">Sign Up</a>
-            <a class="nav-link btn btn-primary " style="background-color: #fe424d; border: none; color: white !important;" href="/login">Login</a>
+
+        <% if (currentUser === undefined) { %>
+          <div class="d-flex gap-2 auth-buttons mt-2 mt-md-0">
+            <a class="nav-link btn btn-primary" style="background-color: transparent; color: black; border: 1px solid #fe424d;" href="/signup">Sign Up</a>
+            <a class="nav-link btn btn-primary" style="background-color: #fe424d; border: none; color: white !important;" href="/login">Login</a>
           </div>
-          
-        <%}else{%>
-          <a class="nav-link nav-link btn btn-primary " style="background-color: #fe424d; border: none; color: white !important;" href="/logout">Logout</a>
-        <%}%>
-
-
-
+        <% } else { %>
+          <a class="nav-link btn btn-primary mt-2 mt-md-0" style="background-color: #fe424d; border: none; color: white !important;" href="/logout">Logout</a>
+        <% } %>
       </div>
-
     </div>
   </div>
 </nav>
-
