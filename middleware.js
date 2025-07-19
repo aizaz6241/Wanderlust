@@ -1,6 +1,6 @@
 
-const Listing = require("../Project-AIRBNB/models/listing")
-const Review = require("../Project-AIRBNB/models/reviews")
+const Listing = require("./models/listing")
+const Review = require("./models/reviews")
 const {listingSchema, reviewSchema} = require("./schema.js");
 const ExpressError = require("./utils/ExpressError.js");
 
